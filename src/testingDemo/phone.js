@@ -1,0 +1,1 @@
+export default phoneNumber => /^(\+44\s?7\d{3}|\(?07\d{3}\)?)\s?\d{3}\s?\d{3}$/.test(phoneNumber)
