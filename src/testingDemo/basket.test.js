@@ -50,7 +50,7 @@ afterEach(()=>{
     mockOnCheckoutErr.mockClear()
 })
 
-describe('Run sample test suite on Basket', ()=>{
+describe.skip('Run sample test suite on Basket', ()=>{
 
     it('should render without blowing up', ()=>{
         expect(userJourneyWrapper.length).toBe(1)

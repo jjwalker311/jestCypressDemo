@@ -22,38 +22,17 @@ describe('Run suite of tests for valid phonenumbers', ()=>{
         },
     );
 
-    it.each(invalidPhoneNumbers)(
-        'should validate %s as false',
-        number => {
-            expect(validator(number)).toBe(false);
-        },
-    );
-
-    //Creates a runner for our specific test
     const phoneNumberRunner = runner(validator)
 
-    let runnerArgs = validPhoneNumbers.reduce((args, number) => {
-        return {
+    let runnerArgs = validPhoneNumbers.reduce((args, number) => ({
             ...args,
             [`should validate ${number} as true`] : {
                 input : [number],
                 output : true
+                //?skip : Boolean
+                //?only : Boolean
             }
-        }
-    }, {})
-
-    phoneNumberRunner(runnerArgs)
-
-    runnerArgs = invalidPhoneNumbers.reduce((args, number) => {
-        return {
-            ...args,
-            [`should validate ${number} as false`] : {
-                input : [number],
-                output : false,
-                //skip : number === 'banana'   
-            }
-        }
-    }, {})
+    }), {})
 
     phoneNumberRunner(runnerArgs)
 })
